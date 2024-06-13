@@ -1,0 +1,185 @@
+{
+  "Nodos": [
+    {
+      "Nombre": "santo domingo",
+      "Aristas": [
+        {
+          "Destino": "heredia",
+          "Distancia": 3.5
+        },
+        {
+          "Destino": "tibas",
+          "Distancia": 4.0
+        }
+      ]
+    },
+    {
+      "Nombre": "heredia",
+      "Aristas": [
+        {
+          "Destino": "santo domingo",
+          "Distancia": 3.5
+        }
+      ]
+    },
+    {
+      "Nombre": "tibas",
+      "Aristas": [
+        {
+          "Destino": "santo domingo",
+          "Distancia": 4.0
+        },
+        {
+          "Destino": "san jose",
+          "Distancia": 6.0
+        }
+      ]
+    },
+    {
+      "Nombre": "moravia",
+      "Aristas": [
+        {
+          "Destino": "tibas",
+          "Distancia": 2.5
+        },
+        {
+          "Destino": "guadalupe",
+          "Distancia": 3.0
+        }
+      ]
+    },
+    {
+      "Nombre": "guadalupe",
+      "Aristas": [
+        {
+          "Destino": "moravia",
+          "Distancia": 3.0
+        },
+        {
+          "Destino": "san pedro",
+          "Distancia": 2.0
+        }
+      ]
+    },
+    {
+      "Nombre": "san pedro",
+      "Aristas": [
+        {
+          "Destino": "guadalupe",
+          "Distancia": 2.0
+        },
+        {
+          "Destino": "san jose",
+          "Distancia": 4.0
+        },
+        {
+          "Destino": "curridabat",
+          "Distancia": 5.0
+        }
+      ]
+    },
+    {
+      "Nombre": "san jose",
+      "Aristas": [
+        {
+          "Destino": "san pedro",
+          "Distancia": 4.0
+        },
+        {
+          "Destino": "tibas",
+          "Distancia": 6.0
+        },
+        {
+          "Destino": "zapote",
+          "Distancia": 3.5
+        }
+      ]
+    },
+    {
+      "Nombre": "zapote",
+      "Aristas": [
+        {
+          "Destino": "san jose",
+          "Distancia": 3.5
+        },
+        {
+          "Destino": "tres rios",
+          "Distancia": 7.0
+        }
+      ]
+    },
+    {
+      "Nombre": "sabanilla",
+      "Aristas": [
+        {
+          "Destino": "san jose",
+          "Distancia": 6.0
+        },
+        {
+          "Destino": "san pedro",
+          "Distancia": 3.0
+        },
+        {
+          "Destino": "guadalupe",
+          "Distancia": 4.0
+        }
+      ]
+    },
+    {
+      "Nombre": "curridabat",
+      "Aristas": [
+        {
+          "Destino": "san pedro",
+          "Distancia": 5.0
+        },
+        {
+          "Destino": "tres rios",
+          "Distancia": 4.0
+        }
+      ]
+    },
+    {
+      "Nombre": "tres rios",
+      "Aristas": [
+        {
+          "Destino": "curridabat",
+          "Distancia": 4.0
+        },
+        {
+          "Destino": "cartago",
+          "Distancia": 5.0
+        },
+        {
+          "Destino": "sabanilla",
+          "Distancia": 6.5
+        },
+        {
+          "Destino": "zapote",
+          "Distancia": 7.0
+        }
+      ]
+    },
+    {
+      "Nombre": "cartago",
+      "Aristas": [
+        {
+          "Destino": "tres rios",
+          "Distancia": 5.0
+        },
+        {
+          "Destino": "paraiso",
+          "Distancia": 3.0
+        }
+      ]
+    },
+    {
+      "Nombre": "paraiso",
+      "Aristas": [
+        {
+          "Destino": "cartago",
+          "Distancia": 3.0
+        }
+      ]
+    }
+  ]
+}
