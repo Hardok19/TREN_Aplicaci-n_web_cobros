@@ -1,50 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import { GetTrainRoutes } from './services/TrainRouteService';
-import { useEffect, useState } from 'react';
+import React from 'react';
+import Login from './Login';
 
 function App() {
-  const [routes, setRoutes] = useState([]);
-  const [currentTime, setCurrentTime] = useState(Date().toLocaleString());
-  
-  useEffect(() => {
-    async function loadData() {
-      let routes = await GetTrainRoutes();
-      setRoutes(routes);
-    }
-
-    setInterval(() => {
-      setCurrentTime(Date().toLocaleString());
-    }, 1000)
-
-    setInterval(() => {
-      loadData();
-    }, 5000)
-  }, []);
-
-  return (
-    <div className="App">
-      {currentTime}
-      <table>
-        <thead>
-          <tr>
-            <th>Start</th>
-            <th>End</th>
-            <th>Cost</th>
-            <th>Distance</th>
-          </tr>
-        </thead>
-      {routes.map((element, index) => 
-        <tr id={index}>
-          <td>{element.start}</td>
-          <td>{element.end}</td>
-          <td>{element.cost}</td>
-          <td>{element.distanceInKm}</td>
-        </tr>
-      )}    
-      </table>  
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1>Welcome to My Auth App</h1>
+            </header>
+            <Login />
+        </div>
+    );
 }
 
 export default App;
