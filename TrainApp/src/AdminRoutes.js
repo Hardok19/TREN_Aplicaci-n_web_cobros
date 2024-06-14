@@ -1,134 +1,81 @@
 import React, { useState, useEffect } from 'react';
-import { GetTrainRoutes, AddTrainRoute, DeleteTrainRoute, UpdateTrainRoute } from './services/TrainRouteService';
+import axios from 'axios';
 
-function AdminRoutes() {
-  const [routes, setRoutes] = useState([]);
-  const [newRoute, setNewRoute] = useState({ start: '', end: '', cost: '', distanceInKm: '' });
-  const [isEditing, setIsEditing] = useState(false);
-  const [currentRoute, setCurrentRoute] = useState({});
+const AdminRoutes = () => {
+  const [graphData, setGraphData] = useState({ Nodos: [] });
+  const [newRoute, setNewRoute] = useState({ from: '', to: '', distance: '', price: '635₡' });
 
   useEffect(() => {
-    async function fetchRoutes() {
-      const routes = await GetTrainRoutes();
-      setRoutes(routes);
-    }
-
-    fetchRoutes();
+    fetch('/grafo.json')
+      .then(response => response.json())
+      .then(data => setGraphData(data));
   }, []);
 
-  const handleAddRoute = async () => {
-    await AddTrainRoute(newRoute);
-    setRoutes([...routes, newRoute]);
-    setNewRoute({ start: '', end: '', cost: '', distanceInKm: '' });
-  };
+  const handleAddRoute = () => {
+    const updatedGraphData = { ...graphData };
+    const fromNode = updatedGraphData.Nodos.find(node => node.Nombre === newRoute.from);
+    const toNode = updatedGraphData.Nodos.find(node => node.Nombre === newRoute.to);
 
-  const handleDeleteRoute = async (index) => {
-    const route = routes[index];
-    await DeleteTrainRoute(route.id);
-    setRoutes(routes.filter((_, i) => i !== index));
-  };
+    if (fromNode && toNode) {
+      fromNode.Aristas.push({ Destino: newRoute.to, Distancia: parseFloat(newRoute.distance), Precio: newRoute.price });
+      toNode.Aristas.push({ Destino: newRoute.from, Distancia: parseFloat(newRoute.distance), Precio: newRoute.price });
+    } else {
+      if (!fromNode) {
+        updatedGraphData.Nodos.push({ Nombre: newRoute.from, Aristas: [{ Destino: newRoute.to, Distancia: parseFloat(newRoute.distance), Precio: newRoute.price }] });
+      } else {
+        fromNode.Aristas.push({ Destino: newRoute.to, Distancia: parseFloat(newRoute.distance), Precio: newRoute.price });
+      }
 
-  const handleEditRoute = (index) => {
-    setIsEditing(true);
-    setCurrentRoute(routes[index]);
-  };
+      if (!toNode) {
+        updatedGraphData.Nodos.push({ Nombre: newRoute.to, Aristas: [{ Destino: newRoute.from, Distancia: parseFloat(newRoute.distance), Precio: newRoute.price }] });
+      } else {
+        toNode.Aristas.push({ Destino: newRoute.from, Distancia: parseFloat(newRoute.distance), Precio: newRoute.price });
+      }
+    }
 
-  const handleUpdateRoute = async () => {
-    await UpdateTrainRoute(currentRoute);
-    const updatedRoutes = routes.map((route) =>
-      route.id === currentRoute.id ? currentRoute : route
-    );
-    setRoutes(updatedRoutes);
-    setIsEditing(false);
-    setCurrentRoute({});
+    setGraphData(updatedGraphData);
+
+    axios.post('/api/save-grafo', updatedGraphData)
+      .then(response => console.log(response.data))
+      .catch(error => console.error('Error saving graph data:', error));
   };
 
   return (
     <div>
-      <h2>Admin Routes</h2>
+      <h2>Manage Routes</h2>
       <div>
         <input
           type="text"
-          placeholder="Start"
-          value={newRoute.start}
-          onChange={(e) => setNewRoute({ ...newRoute, start: e.target.value })}
+          placeholder="From"
+          value={newRoute.from}
+          onChange={e => setNewRoute({ ...newRoute, from: e.target.value })}
         />
         <input
           type="text"
-          placeholder="End"
-          value={newRoute.end}
-          onChange={(e) => setNewRoute({ ...newRoute, end: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Cost"
-          value={newRoute.cost}
-          onChange={(e) => setNewRoute({ ...newRoute, cost: e.target.value })}
+          placeholder="To"
+          value={newRoute.to}
+          onChange={e => setNewRoute({ ...newRoute, to: e.target.value })}
         />
         <input
           type="text"
           placeholder="Distance"
-          value={newRoute.distanceInKm}
-          onChange={(e) => setNewRoute({ ...newRoute, distanceInKm: e.target.value })}
+          value={newRoute.distance}
+          onChange={e => setNewRoute({ ...newRoute, distance: e.target.value })}
         />
         <button onClick={handleAddRoute}>Add Route</button>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Start</th>
-            <th>End</th>
-            <th>Cost</th>
-            <th>Distance</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {routes.map((route, index) => (
-            <tr key={index}>
-              <td>{route.start}</td>
-              <td>{route.end}</td>
-              <td>{route.cost}</td>
-              <td>{route.distanceInKm}</td>
-              <td>
-                <button onClick={() => handleEditRoute(index)}>Edit</button>
-                <button onClick={() => handleDeleteRoute(index)}>Delete</button>
-              </td>
-            </tr>
+      {graphData.Nodos.map((nodo, index) => (
+        <div key={index}>
+          <h3>{nodo.Nombre}</h3>
+          {nodo.Aristas.map((arista, idx) => (
+            <div key={idx}>
+              {arista.Destino} - {arista.Distancia} km - {arista.Precio} <button>Edit</button> <button>Delete</button>
+            </div>
           ))}
-        </tbody>
-      </table>
-      {isEditing && (
-        <div>
-          <input
-            type="text"
-            placeholder="Start"
-            value={currentRoute.start}
-            onChange={(e) => setCurrentRoute({ ...currentRoute, start: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="End"
-            value={currentRoute.end}
-            onChange={(e) => setCurrentRoute({ ...currentRoute, end: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Cost"
-            value={currentRoute.cost}
-            onChange={(e) => setCurrentRoute({ ...currentRoute, cost: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Distance"
-            value={currentRoute.distanceInKm}
-            onChange={(e) => setCurrentRoute({ ...currentRoute, distanceInKm: e.target.value })}
-          />
-          <button onClick={handleUpdateRoute}>Update Route</button>
         </div>
-      )}
+      ))}
     </div>
   );
-}
+};
 
 export default AdminRoutes;

@@ -7,22 +7,21 @@ export async function GetTrainRoutes() {
       { id: 2, start: 'City C', end: 'City D', cost: 150, distanceInKm: 300, startLat: 9.9, startLng: -84.1, endLat: 9.8, endLng: -84.2 },
     ];
   }
-  
+
   export async function AddTrainRoute(route) {
     // Simulando la adición de una ruta
     // En un caso real, se haría una llamada a una API para añadir la ruta
     return { ...route, id: Date.now() };
   }
-  
+
   export async function DeleteTrainRoute(routeId) {
     // Simulando la eliminación de una ruta
     // En un caso real, se haría una llamada a una API para eliminar la ruta
     return true;
   }
-  
+
   export async function UpdateTrainRoute(updatedRoute) {
     // Simulando la actualización de una ruta
     // En un caso real, se haría una llamada a una API para actualizar la ruta
     return updatedRoute;
   }
-  
