@@ -24,24 +24,30 @@ public class Compra
 
 
 
-    public class jsonmanage {
+    public static class jsonmanage {
 
 
-        List<Users> lista = new List<Users>();
+        static List<Users> lista = new List<Users>();
         
+        public static void SaveUsersToJson(List<Users> users, string filePath){
+            // Utiliza un HashSet para filtrar usuarios duplicados basados en el nombre de usuario
+            var uniqueUsers = new HashSet<string>();
+            var distinctUsers = users.Where(u => uniqueUsers.Add(u.User)).ToList();
 
-        Grafo  grafo = new Grafo();
-        public void SaveUsersToJson(List<Users> users, string filePath){
             var options = new JsonSerializerOptions
             {
                 WriteIndented = true, // Para que el JSON sea más legible
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
-            string jsonString = JsonSerializer.Serialize(users, options);
+            
+            string jsonString = JsonSerializer.Serialize(distinctUsers, options);
             File.WriteAllText(filePath, jsonString);
         }
 
-        public List<Users> LoadUsersFromJson(string filePath){
+        public static List<Users> LoadUsersFromJson(string filePath){
+            
+
+
             string jsonString = File.ReadAllText(filePath);
             var options = new JsonSerializerOptions
             {
@@ -49,46 +55,36 @@ public class Compra
             };
             return JsonSerializer.Deserialize<List<Users>>(jsonString, options);
         }
+
+
+        public static void añadircompra(string user, List<string> compra1){
+            List<Users> json = LoadUsersFromJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\TREN_Aplicaci-n_web_cobros-Grafos-y-admin\\MyApi\\users.json");
+            foreach(Users userinlist in json){
+                Console.WriteLine(user + " -----" + userinlist.User);
+                if(userinlist.User == user){
+                    if(userinlist.Compras != new List<Compra>()){
+                        userinlist.Compras.Add(new Compra{Salida = compra1[0], Llegada = compra1[1], Cantidad = 1, Precio = 1});
+                    }
+                    else{
+                        userinlist.Compras = new List<Compra>();
+                        userinlist.Compras.Add(new Compra{Salida = compra1[0], Llegada = compra1[1], Cantidad = 1, Precio = 1});
+                    }
+                    SaveUsersToJson(json, "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\TREN_Aplicaci-n_web_cobros-Grafos-y-admin\\MyApi\\users.json");
+
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
         
 
-
-        public void a1(){ //Ejemplo de como modificar Users
-            List<Users> a = LoadUsersFromJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\users.json");
-
-            lista = a;
-            lista.Add(new Users{User = "1", Pass = "1"});
-
-            List<string> frag =  grafo.Dijkstra("Paraiso", "Tres Rios").Ruta;
-            double dis = grafo.Dijkstra("Paraiso", "Tres Rios").DistanciaTotal;
-            int pre = (int)(dis + 25);
-            
-
-            foreach(Users user in lista){
-                if (user.User == "1"){
-                    user.Compras = new List<Compra>();
-                    user.Compras.Add(new Compra{Salida = "Paraiso", Llegada = "Tres Rios", Cantidad = 1, Precio = pre});
-
-
-                }
-            }
-            List<string> listaa = new List<string>();
-
-            // Recorre la lista de usuarios y extrae los datos
-            foreach (var usuario in lista){
-                foreach (var compra in usuario.Compras)
-                {
-                    string salida = compra.Salida ?? "null";
-                    string llegada = compra.Llegada ?? "null";
-                    string cantidad = compra.Cantidad.HasValue ? compra.Cantidad.Value.ToString() : "null";
-                    string precio = compra.Precio.HasValue ? compra.Precio.Value.ToString() : "null";
-
-                    string resultado = $"User: {usuario.User}, Pass: {usuario.Pass}, Salida: {salida}, Llegada: {llegada}, Cantidad: {cantidad}, Precio: {precio}";
-                    listaa.Add(resultado);
-                }
-            }
-            Console.WriteLine(listaa);
-            SaveUsersToJson(lista,"C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\users.json");
-        }
     }
 }
 

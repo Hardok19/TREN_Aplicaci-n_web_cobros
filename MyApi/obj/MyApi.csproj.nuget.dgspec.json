@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\MyApi.csproj": {}
+    "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\TREN_Aplicaci-n_web_cobros-Grafos-y-admin\\MyApi\\MyApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\MyApi.csproj": {
+    "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\TREN_Aplicaci-n_web_cobros-Grafos-y-admin\\MyApi\\MyApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\MyApi.csproj",
+        "projectUniqueName": "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\TREN_Aplicaci-n_web_cobros-Grafos-y-admin\\MyApi\\MyApi.csproj",
         "projectName": "MyApi",
-        "projectPath": "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\MyApi.csproj",
+        "projectPath": "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\TREN_Aplicaci-n_web_cobros-Grafos-y-admin\\MyApi\\MyApi.csproj",
         "packagesPath": "C:\\Users\\Hardok\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\obj\\",
+        "outputPath": "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\TREN_Aplicaci-n_web_cobros-Grafos-y-admin\\MyApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hardok\\AppData\\Roaming\\NuGet\\NuGet.Config",

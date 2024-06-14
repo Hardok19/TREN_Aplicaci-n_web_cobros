@@ -1,0 +1,214 @@
+{
+  "Nodos": [
+    {
+      "Nombre": "santo domingo",
+      "Aristas": [
+        {
+          "Destino": "heredia",
+          "Distancia": 3.5,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "tibas",
+          "Distancia": 4.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "heredia",
+      "Aristas": [
+        {
+          "Destino": "santo domingo",
+          "Distancia": 3.5,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "tibas",
+      "Aristas": [
+        {
+          "Destino": "santo domingo",
+          "Distancia": 4.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "san jose",
+          "Distancia": 6.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "moravia",
+      "Aristas": [
+        {
+          "Destino": "tibas",
+          "Distancia": 2.5,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "guadalupe",
+          "Distancia": 3.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "guadalupe",
+      "Aristas": [
+        {
+          "Destino": "moravia",
+          "Distancia": 3.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "san pedro",
+          "Distancia": 2.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "san pedro",
+      "Aristas": [
+        {
+          "Destino": "guadalupe",
+          "Distancia": 2.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "san jose",
+          "Distancia": 4.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "curridabat",
+          "Distancia": 5.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "san jose",
+      "Aristas": [
+        {
+          "Destino": "san pedro",
+          "Distancia": 4.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "tibas",
+          "Distancia": 6.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "zapote",
+          "Distancia": 3.5,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "zapote",
+      "Aristas": [
+        {
+          "Destino": "san jose",
+          "Distancia": 3.5,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "tres rios",
+          "Distancia": 7.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "sabanilla",
+      "Aristas": [
+        {
+          "Destino": "san jose",
+          "Distancia": 6.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "san pedro",
+          "Distancia": 3.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "guadalupe",
+          "Distancia": 4.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "curridabat",
+      "Aristas": [
+        {
+          "Destino": "san pedro",
+          "Distancia": 5.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "tres rios",
+          "Distancia": 4.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "tres rios",
+      "Aristas": [
+        {
+          "Destino": "curridabat",
+          "Distancia": 4.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "cartago",
+          "Distancia": 5.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "sabanilla",
+          "Distancia": 6.5,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "zapote",
+          "Distancia": 7.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "cartago",
+      "Aristas": [
+        {
+          "Destino": "tres rios",
+          "Distancia": 5.0,
+          "Precio": "635₡"
+        },
+        {
+          "Destino": "paraiso",
+          "Distancia": 3.0,
+          "Precio": "635₡"
+        }
+      ]
+    },
+    {
+      "Nombre": "paraiso",
+      "Aristas": [
+        {
+          "Destino": "cartago",
+          "Distancia": 3.0,
+          "Precio": "635₡"
+        }
+      ]
+    }
+  ]
+}

@@ -1,33 +1,35 @@
 using Microsoft.AspNetCore.Mvc;
 using compras;
-using System.Security.Cryptography.X509Certificates;
 using GrafoRutas;
 
-namespace MyApi.Controllers{
+namespace MyApi.Controllers
+{
     [Route("api/authenticate")]
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        jsonmanage prue = new jsonmanage();
 
-        Grafo  grafo = Grafo.CargarDesdeJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\dijkstra\\grafo.json");
+        Grafo grafo = Grafo.CargarDesdeJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\TREN_Aplicaci-n_web_cobros-Grafos-y-admin\\MyApi\\dijkstra\\grafo.json");
         
         List<Users> loadedUserList = new List<Users>();
 
-        List<string> usuarioactivo = new List<string>();
+        public List<string> usuarioactivo = new List<string>();
 
 
         [HttpPost]
         public IActionResult Authenticate([FromBody] UserCredentials credentials)
 
         {   
-            loadedUserList = prue.LoadUsersFromJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\users.json");
+            
+
+
+            loadedUserList = jsonmanage.LoadUsersFromJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\TREN_Aplicaci-n_web_cobros-Grafos-y-admin\\MyApi\\users.json");
 
 
             // Verificar las credenciales (por ejemplo, en una base de datos)
             if (IsValid(credentials.Username, credentials.Username) == "true")
             {   
-                Console.WriteLine(usuarioactivo);
+
                 return Ok(usuarioactivo);
             }
             else
@@ -56,8 +58,10 @@ namespace MyApi.Controllers{
                             }
 
                             usuarioactivo.Add(Dijkstra.DistanciaTotal.ToString());
+
                         }
-                        
+                        sendU.Editor(usuarioactivo[0]);
+                        Console.WriteLine(usuarioactivo[0]);
                         return "true";
                     }
                     else{
@@ -76,5 +80,20 @@ namespace MyApi.Controllers{
         public string Username { get; set; }
         public string Password { get; set; }
     }
+
+    public static class sendU{
+        public static string user = "";
+
+        public static void Editor(string name){
+            user = name;
+        }
+
+        public static string get(){
+            return user;
+        }
+
+
+    }
+
 
 }
