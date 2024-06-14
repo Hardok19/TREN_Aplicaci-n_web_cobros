@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\MyApi.csproj": {}
+    "C:\\Users\\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\MyApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\MyApi.csproj": {
+    "C:\\Users\\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\MyApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\MyApi.csproj",
+        "projectUniqueName": "C:\\Users\\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\MyApi.csproj",
         "projectName": "MyApi",
-        "projectPath": "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\MyApi.csproj",
-        "packagesPath": "C:\\Users\\Hardok\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\obj\\",
+        "projectPath": "C:\\Users\\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\MyApi.csproj",
+        "packagesPath": "C:\\Users\\tenci\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Hardok\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tenci\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

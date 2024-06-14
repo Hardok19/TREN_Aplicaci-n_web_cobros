@@ -10,7 +10,7 @@ namespace MyApi.Controllers{
     {
         jsonmanage prue = new jsonmanage();
 
-        Grafo  grafo = Grafo.CargarDesdeJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\dijkstra\\grafo.json");
+        Grafo  grafo = Grafo.CargarDesdeJson("C:\\Users\\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\dijkstra\\grafo.json");
         
         List<Users> loadedUserList = new List<Users>();
 
@@ -21,7 +21,7 @@ namespace MyApi.Controllers{
         public IActionResult Authenticate([FromBody] UserCredentials credentials)
 
         {   
-            loadedUserList = prue.LoadUsersFromJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\users.json");
+            loadedUserList = prue.LoadUsersFromJson("C:\\Users\\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\users.json");
 
 
             // Verificar las credenciales (por ejemplo, en una base de datos)

@@ -53,7 +53,7 @@ public class Compra
 
 
         public void a1(){ //Ejemplo de como modificar Users
-            List<Users> a = LoadUsersFromJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\users.json");
+            List<Users> a = LoadUsersFromJson("C:\\Users\\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\users.json");
 
             lista = a;
             lista.Add(new Users{User = "1", Pass = "1"});
@@ -87,7 +87,7 @@ public class Compra
                 }
             }
             Console.WriteLine(listaa);
-            SaveUsersToJson(lista,"C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\users.json");
+            SaveUsersToJson(lista, "C:\\Users\\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\users.json");
         }
     }
 }

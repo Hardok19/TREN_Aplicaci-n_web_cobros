@@ -34,7 +34,7 @@ public class aController : ControllerBase
 
         public void Ola(){
             prue.a1();
-            Console.WriteLine(prue.LoadUsersFromJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\users.json"));
+            Console.WriteLine(prue.LoadUsersFromJson("C:\\Users\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\users.json"));
             Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
     }
@@ -44,7 +44,7 @@ public class aController : ControllerBase
         [HttpPost]
         public IActionResult Getusers(){
 
-            List<Users> loadedUserList = prue.LoadUsersFromJson("C:\\Users\\Hardok\\Desktop\\Proyecto 3 datos 1\\Guía\\MyApi\\users.json");
+            List<Users> loadedUserList = prue.LoadUsersFromJson("C:\\Users\tenci\\OneDrive\\Escritorio\\Nueva carpeta\\TREN_Aplicaci-n_web_cobros\\MyApi\\users.json");
 
             List<string> listaa = new List<string>();
 

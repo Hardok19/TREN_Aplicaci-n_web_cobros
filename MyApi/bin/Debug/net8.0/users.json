@@ -7,7 +7,7 @@
         "salida": "Paraiso",
         "llegada": "Tres Rios",
         "cantidad": 1,
-        "precio": 25
+        "precio": -2147483648
       }
     ]
   },

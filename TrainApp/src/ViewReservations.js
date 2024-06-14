@@ -5,8 +5,19 @@ function ViewReservations() {
   const [filter, setFilter] = useState({ user: '', date: '', route: '' });
 
   useEffect(() => {
-    // Aquí se debe implementar la lógica para obtener las reservaciones desde el backend
+    // Lógica para obtener todas las reservaciones
+    fetch('http://localhost:5006/api/all-reservations')
+      .then(response => response.json())
+      .then(data => {
+        setReservations(data);
+      })
+      .catch(error => console.error('Error fetching reservations:', error));
   }, []);
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilter({ ...filter, [name]: value });
+  };
 
   const filteredReservations = reservations.filter((reservation) => {
     return (
@@ -18,41 +29,50 @@ function ViewReservations() {
 
   return (
     <div>
-      <h2>View Reservations</h2>
+      <h2>View All Tickets</h2>
       <div>
         <input
           type="text"
+          name="user"
           placeholder="User"
           value={filter.user}
-          onChange={(e) => setFilter({ ...filter, user: e.target.value })}
+          onChange={handleFilterChange}
         />
         <input
           type="date"
+          name="date"
           placeholder="Date"
           value={filter.date}
-          onChange={(e) => setFilter({ ...filter, date: e.target.value })}
+          onChange={handleFilterChange}
         />
         <input
           type="text"
+          name="route"
           placeholder="Route"
           value={filter.route}
-          onChange={(e) => setFilter({ ...filter, route: e.target.value })}
+          onChange={handleFilterChange}
         />
       </div>
       <table>
         <thead>
           <tr>
-            <th>User</th>
+            <th>Username</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Quantity</th>
+            <th>Price</th>
             <th>Date</th>
-            <th>Route</th>
           </tr>
         </thead>
         <tbody>
           {filteredReservations.map((reservation, index) => (
             <tr key={index}>
               <td>{reservation.user}</td>
+              <td>{reservation.salida}</td>
+              <td>{reservation.llegada}</td>
+              <td>{reservation.cantidad}</td>
+              <td>{reservation.precio}</td>
               <td>{reservation.date}</td>
-              <td>{reservation.route}</td>
             </tr>
           ))}
         </tbody>

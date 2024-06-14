@@ -34,5 +34,41 @@
         "precio": 0
       }
     ]
+  },
+  {
+    "user": "1",
+    "pass": "1",
+    "compras": [
+      {
+        "salida": "Paraiso",
+        "llegada": "Tres Rios",
+        "cantidad": 1,
+        "precio": -2147483648
+      }
+    ]
+  },
+  {
+    "user": "1",
+    "pass": "1",
+    "compras": [
+      {
+        "salida": "Paraiso",
+        "llegada": "Tres Rios",
+        "cantidad": 1,
+        "precio": -2147483648
+      }
+    ]
+  },
+  {
+    "user": "1",
+    "pass": "1",
+    "compras": [
+      {
+        "salida": "Paraiso",
+        "llegada": "Tres Rios",
+        "cantidad": 1,
+        "precio": -2147483648
+      }
+    ]
   }
 ]
